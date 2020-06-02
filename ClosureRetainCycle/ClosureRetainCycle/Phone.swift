@@ -27,10 +27,11 @@ class Person {
         print("deint: \(self)")
     }
     
+    // use [weak self] in to deinit release memory
     func setupPhone() {
-        self.phone.whenPhoneRings {
+        self.phone.whenPhoneRings { [weak self] in
             print("<Answering phone>")
-            print("Hello this is \(self.name)")
+            print("Hello this is \(self?.name)")
         }
     }
 }

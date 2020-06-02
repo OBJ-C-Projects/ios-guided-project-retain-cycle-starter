@@ -10,17 +10,21 @@ import Foundation
 
 // Double Linked List Node
 
+
+//1.Create Node
 //          head                tail
 //   nil <- Bob  <->  Max  <->  Sue -> nil
 class Node: Equatable, CustomStringConvertible {
+    //Set Properties
     var next: Node?
-    var prev: Node?
+    weak var prev: Node?
     var value: String
     
     init(value: String) {
         self.value = value
     }
     
+    //computed property
     var description: String {
         return "\(value)"
     }
@@ -30,6 +34,7 @@ class Node: Equatable, CustomStringConvertible {
     }
 }
 
+//Create Linked List
 class LinkedList {
     private (set) var head: Node?
     private (set) var tail: Node?
