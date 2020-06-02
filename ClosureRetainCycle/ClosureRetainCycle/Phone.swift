@@ -30,8 +30,11 @@ class Person {
     // use [weak self] in to deinit release memory
     func setupPhone() {
         self.phone.whenPhoneRings { [weak self] in
+            
+            guard let self = self else{return}
+            
             print("<Answering phone>")
-            print("Hello this is \(self?.name)")
+            print("Hello this is \(self.name)")
         }
     }
 }
